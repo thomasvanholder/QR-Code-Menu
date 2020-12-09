@@ -1,4 +1,4 @@
-class Categoy < ApplicationRecord
+class Category < ApplicationRecord
   belongs_to :menu
   has_many_items
 end

@@ -1,5 +1,5 @@
 class MenusController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:new]
+  skip_before_action :authenticate_user!, only: [:new, :create, :show]
   before_action :set_menu, only: [:show, :edit, :update, :destroy]
 
   # GET /menus
@@ -26,6 +26,7 @@ class MenusController < ApplicationController
   # POST /menus.json
   def create
     @menu = Menu.new(menu_params)
+    @menu.user = current_user
 
     respond_to do |format|
       if @menu.save

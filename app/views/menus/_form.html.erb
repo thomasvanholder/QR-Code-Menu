@@ -17,14 +17,8 @@
   </div>
 
   <div class="mb-6">
-    <%= form.label "Restaurant Name", class:"label" %>
-    <%= form.text_field :name, class:"input" %>
-  </div>
-
-  <div class="mb-6">
-    <%= form.fields_for :categories, Category.new, child_index: 'NEW_CATEGORY' do |category| %>
-      <%#= render "fields_category", form: category %>
-    <% end %>
+    <%= form.label "Categories", class:"label" %>
+    <%= form.file_field :photo %>
   </div>
 
   <div class="mb-6">
