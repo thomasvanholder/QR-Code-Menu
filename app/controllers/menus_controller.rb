@@ -1,4 +1,5 @@
 class MenusController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:new]
   before_action :set_menu, only: [:show, :edit, :update, :destroy]
 
   # GET /menus

@@ -1,5 +1,7 @@
-<h1>New Menu</h1>
+<h2 class="heading text-4xl text-center font-bold pt-4 mb-8">Create a New Menu</h2>
 
-<%= render 'form', menu: @menu %>
-
-<%= link_to 'Back', menus_path %>
+<div class="w-full max-w-xl mx-auto my-6">
+  <div class="bg-white shadow-md rounded-lg px-8 pt-6 pb-8">
+    <%= render 'form', menu: @menu %>
+  </div>
+</div>
