@@ -1,4 +1,4 @@
 class Category < ApplicationRecord
   belongs_to :menu
-  has_many_items
+  has_many :items
 end
