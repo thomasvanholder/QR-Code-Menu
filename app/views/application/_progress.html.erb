@@ -1,0 +1,22 @@
+<div class="px-8 pt-6 pb-8">
+    <%= render_svg "table", styles:"max-w-full h-auto mb-4" %>
+    <h4>Create a new menu on QR Code Menu</h4>
+    <p class="text-sm italic">Each menu requires the following:</p>
+    <ul class="mt-1">
+      <li class="flex items-center space-x-1">
+        <span>Name</span>
+
+
+          <% if @menu.name %>
+
+
+          <% unless @menu.name.empty? %>
+            <%= render_svg "icons/checkmark", styles:" text-green-600 w-5 h-5" %>
+          <% end %>
+          <% end %>
+
+      </li>
+      <li>Categories</li>
+      <li>Menu items</li>
+    </ul>
+  </div>

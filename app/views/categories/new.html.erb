@@ -1,0 +1,13 @@
+<% content_for :primary_content do %>
+  <div class="lg:p-10 pt-10 px-4 max-w-md">
+    <h2 class="heading text-4xl text-center font-bold pt-4 mb-8">Add Categories</h2>
+
+    <%= render 'form', category: @category %>
+  </div>
+<% end %>
+
+<% content_for :secondary_content do %>
+  <%= render "progress", menu: @menu %>
+<% end %>
+
+<%= render "base_layout" %>
