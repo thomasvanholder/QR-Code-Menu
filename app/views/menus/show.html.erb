@@ -2,6 +2,7 @@
   <div class="lg:p-10 pt-10 px-4">
     <h2 class="heading text-4xl text-center font-bold pt-4 mb-8">Menu</h2>
     <%= @menu.name %>
+    <%= cl_image_tag(@menu.photo, width: 400, height: 300, crop: :fill) %>
   </div>
 <% end %>
 
