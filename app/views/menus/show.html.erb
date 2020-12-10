@@ -1,6 +1,6 @@
 <% content_for :primary_content do %>
   <div class="lg:p-10 pt-10 px-4">
-    <h2 class="heading text-4xl text-center font-bold pt-4 mb-8">Menu</h2>
+    <h2 class="heading text-4xl font-bold pt-4 mb-8">Menu</h2>
     <div class="mb-6">
       <p class=label>Restaurant Name</p>
       <h5 class="ml-3 text-xl"><%= @menu.name %></h5>
@@ -10,10 +10,17 @@
       <p class="label">Logo</p>
       <%= cl_image_tag(@menu.photo.key, width: 200, height: 150, crop: :fill) %>
     </div>
-
-    <%= link_to "Add Categories", new_menu_category_path(@menu), class:"btn btn-sm btn-purple" %>
   </div>
 <% end %>
+
+<% content_for :third_content do %>
+  <div class="lg:p-10 pt-10 px-4">
+  <h2 class="heading text-2xl font-bold pt-4 mb-8">Categories</h2>
+
+  <%= link_to "Add Categories", menu_categories_path(@menu), class:"btn btn-sm btn-purple" %>
+  </div>
+<% end %>
+
 
 <% content_for :secondary_content do %>
   <%= render "application/progress", menu: @menu %>

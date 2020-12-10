@@ -1,7 +1,10 @@
 class CategoriesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:new, :edit]
-  before_action :set_menu, only: [:new]
+  before_action :set_menu, only: [:new, :index]
 
+  def index
+
+  end
   def new
     @category = @menu.categories.new
   end
