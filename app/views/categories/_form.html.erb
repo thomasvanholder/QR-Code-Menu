@@ -1,26 +1,35 @@
-<%= form_with(model: category, local: true, url: menu_categories_path(category.menu), method: :post) do |form| %>
-  <% if category.errors.any? %>
+<%= form_with(model: @menu) do |form| %>
+  <% if form.object.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(category.errors.count, "error") %> prohibited this category from being saved:</h2>
-
+      <h2><%= pluralize(form.errors.count, "error") %> prohibited this form from being saved:</h2>
       <ul>
-        <% category.errors.full_messages.each do |message| %>
+        <% form.errors.full_messages.each do |message| %>
           <li><%= message %></li>
         <% end %>
       </ul>
     </div>
   <% end %>
 
-  <div class="mb-6">
-    <%= form.label "Category Name", class:"label" %>
-    <%= form.text_field :name, class:"input" %>
-  </div>
+    <div data-controller="duplicate">
+      <template data-duplicate-target="template">
+        <%= form.fields_for :categories, Category.new, child_index: 'TEMPLATE_RECORD' do |form_category| %>
+            <%= render "template", form: form_category %>
+        <% end %>
+      </template>
 
-  <div class="mb-6">
-    <%= link_to "Add new category", "#", class:"link" %>
-  </div>
+      <div data-duplicate-target="add_category">
+        <div class="mb-6">
+          <%= link_to "Add new category", "#", class:"link", data: { action: "duplicate#add"}  %>
+        </div>
+      </div>
+    </div>
 
-  <div class="mb-6">
-    <%= form.submit "Create Categories", class:"btn btn-sm btn-purple" %>
-  </div>
+
+
+    <div class="mb-6">
+      <%= form.submit "Create Categories", class:"btn btn-sm btn-purple" %>
+    </div>
+
 <% end %>
+
+

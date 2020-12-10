@@ -1,8 +1,8 @@
 <% content_for :primary_content do %>
   <div class="lg:p-10 pt-10 px-4 max-w-md">
-    <h2 class="heading text-4xl font-bold pt-4 mb-8">Add Categories</h2>
+    <h2 class="heading text-4xl font-bold pt-4 mb-8">Edit Categories</h2>
 
-    <%= render 'categories/form', category: @category %>
+    <%= render 'categories/form', menu: @menu%>
   </div>
 <% end %>
 
@@ -11,3 +11,4 @@
 <% end %>
 
 <%= render "base_layout" %>
+

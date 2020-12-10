@@ -12,7 +12,11 @@
 
     <div class="mb-6">
       <p class="label">Logo</p>
-      <%= cl_image_tag(@menu.photo.key, width: 200, height: 150, crop: :fill) %>
+      <% if @menu.photo.attached? %>
+        <%= cl_image_tag(@menu.photo.key, class:"rounded h-48") %>
+      <% else %>
+
+      <% end %>
     </div>
   </div>
 <% end %>

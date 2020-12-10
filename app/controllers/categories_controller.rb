@@ -1,12 +1,12 @@
 class CategoriesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:index, :new, :create, :edit]
-  before_action :set_menu, only: [:new, :index, :create]
+  skip_before_action :authenticate_user!, only: %i[index new create edit]
+  before_action :set_menu, only: %i[new index create]
 
   def index
     @category = @menu.categories.new
   end
-  def new
 
+  def new
   end
 
   def create
@@ -23,6 +23,7 @@ class CategoriesController < ApplicationController
 
   def edit
   end
+
 
   private
 

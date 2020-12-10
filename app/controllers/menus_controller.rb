@@ -11,6 +11,7 @@ class MenusController < ApplicationController
   # GET /menus/1
   # GET /menus/1.json
   def show
+    @menu.categories.build
   end
 
   # GET /menus/new
@@ -71,6 +72,10 @@ class MenusController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def menu_params
-      params.require(:menu).permit(:user_id, :name, :photo)
+      params.require(:menu).permit(
+        :user_id,
+        :name,
+        :photo,
+        categories_attributes: [:id, :name, :_destroy])
     end
 end
