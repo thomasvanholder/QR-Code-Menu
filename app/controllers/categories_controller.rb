@@ -1,16 +1,24 @@
 class CategoriesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:new, :edit]
-  before_action :set_menu, only: [:new, :index]
+  skip_before_action :authenticate_user!, only: [:index, :new, :create, :edit]
+  before_action :set_menu, only: [:new, :index, :create]
 
   def index
-
+    @category = @menu.categories.new
   end
   def new
-    @category = @menu.categories.new
+
   end
 
   def create
     @category = @menu.categories.build(category_params)
+
+    respond_to do |format|
+      if @category.save
+        format.html { redirect_to @menu, notice: '#Categories successfully created.' }
+      else
+        format.html { render :new }
+      end
+    end
   end
 
   def edit
@@ -23,6 +31,6 @@ class CategoriesController < ApplicationController
   end
 
   def category_params
-    require(:category).permit(:name)
+    params.require(:category).permit(:name)
   end
 end

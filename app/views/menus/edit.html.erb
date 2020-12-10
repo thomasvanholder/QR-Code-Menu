@@ -1,6 +1,13 @@
-<h2 class="heading text-4xl font-bold pt-4 mb-8">Create a New Menu</h2>
+<% content_for :primary_content do %>
+  <div class="lg:p-10 pt-10 px-4">
+    <h2 class="heading text-4xl text-center font-bold pt-4 mb-8">Edit Menu</h2>
 
-<%= render 'form', menu: @menu %>
+    <%= render 'form', menu: @menu %>
+  </div>
+<% end %>
 
-<%= link_to 'Show', @menu %> |
-<%= link_to 'Back', menus_path %>
+<% content_for :secondary_content do %>
+  <%= render "application/progress" , menu: @menu %>
+<% end %>
+
+<%= render "base_layout" %>

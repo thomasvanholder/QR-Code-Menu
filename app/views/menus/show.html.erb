@@ -1,6 +1,10 @@
 <% content_for :primary_content do %>
   <div class="lg:p-10 pt-10 px-4">
-    <h2 class="heading text-4xl font-bold pt-4 mb-8">Menu</h2>
+    <div class="flex justify-between items-center">
+      <h2 class="heading text-4xl font-bold pt-4 mb-8">Menu</h2>
+      <%= link_to "Edit Menu", edit_menu_path(@menu), class:"btn btn-sm btn-purple" %>
+    </div>
+
     <div class="mb-6">
       <p class=label>Restaurant Name</p>
       <h5 class="ml-3 text-xl"><%= @menu.name %></h5>
@@ -15,9 +19,18 @@
 
 <% content_for :third_content do %>
   <div class="lg:p-10 pt-10 px-4">
-  <h2 class="heading text-2xl font-bold pt-4 mb-8">Categories</h2>
+  <div class="flex justify-between items-center">
+    <h2 class="heading text-2xl font-bold pt-4 mb-8">Categories</h2>
+    <%= link_to "Edit Categories", menu_categories_path(@menu), class:"btn btn-sm btn-purple" %>
+  </div>
 
-  <%= link_to "Add Categories", menu_categories_path(@menu), class:"btn btn-sm btn-purple" %>
+      <div class="mb-6">
+      <p class=label>Categories</p>
+      <% @menu.categories.each do |category| %>
+        <h5 class="ml-3 text-xl"><%= category.name %></h5>
+      <% end %>
+    </div>
+
   </div>
 <% end %>
 
