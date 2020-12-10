@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(version: 2020_12_09_163429) do
   end
 
   create_table "menus", force: :cascade do |t|
-    t.bigint "user_id", null: false
+    t.bigint "user_id"
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -57,5 +57,4 @@ ActiveRecord::Schema.define(version: 2020_12_09_163429) do
 
   add_foreign_key "categories", "menus"
   add_foreign_key "items", "categories"
-  add_foreign_key "menus", "users"
 end
