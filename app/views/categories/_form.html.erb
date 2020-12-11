@@ -11,6 +11,10 @@
   <% end %>
 
     <div data-controller="duplicate">
+    <%= form.fields_for :categories do |fc| %>
+      <%= render "template", form: fc %>
+    <% end %>
+
       <template data-duplicate-target="template">
         <%= form.fields_for :categories, Category.new, child_index: 'TEMPLATE_RECORD' do |form_category| %>
             <%= render "template", form: form_category %>
@@ -23,8 +27,6 @@
         </div>
       </div>
     </div>
-
-
 
     <div class="mb-6">
       <%= form.submit "Create Categories", class:"btn btn-sm btn-purple" %>
