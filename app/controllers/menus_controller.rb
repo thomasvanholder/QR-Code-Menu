@@ -76,6 +76,7 @@ class MenusController < ApplicationController
         :user_id,
         :name,
         :photo,
-        categories_attributes: [:id, :name, :_destroy])
+        categories_attributes: [:id, :name, :_destroy],
+        items_attributes: [:id, :name, :price, :description, :_destroy])
     end
 end

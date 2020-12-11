@@ -1,0 +1,39 @@
+<%= form_with(model: @menu) do |form| %>
+  <%= form %>
+  <% if form.object.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(form.errors.count, "error") %> prohibited this form from being saved:</h2>
+      <ul>
+        <% form.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+    <div data-controller="duplicate">
+    <%= form.fields_for :items do |fc| %>
+      <%= render "items/template", form: fc %>
+    <% end %>
+
+      <template data-duplicate-target="template">
+        <%= form.fields_for :items, Item.new, child_index: 'TEMPLATE_RECORD' do |form_item| %>
+            <%= render "items/template", form: form_item %>
+        <% end %>
+      </template>
+
+      <div data-duplicate-target="add_category">
+        <div class="mb-6">
+          <%= link_to "Add new item", "#", class:"link", data: { action: "duplicate#add"}  %>
+        </div>
+      </div>
+    </div>
+
+    <div class="mb-6">
+      <%= form.submit "Create Items", class:"btn btn-sm btn-purple" %>
+    </div>
+
+<% end %>
+
+
+<% console %>

@@ -1,0 +1,7 @@
+<div class="mb-6 nested-fields">
+  <%= form.hidden_field :_destroy %>
+  <%= form.label "Item Name", class:"label" %>
+  <%= form.text_field :name, placeholder: 'Item', class:"input"%>
+  <%= form.collection_select  :category_id, @menu.categories, :id, :name %>
+  <small><%= link_to "Remove", "#", data: { action:"duplicate#remove"} %></small>
+</div>
