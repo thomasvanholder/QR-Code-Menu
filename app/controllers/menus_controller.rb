@@ -11,7 +11,6 @@ class MenusController < ApplicationController
   # GET /menus/1
   # GET /menus/1.json
   def show
-    @menu.categories.build
   end
 
   # GET /menus/new
@@ -45,6 +44,7 @@ class MenusController < ApplicationController
   def update
     respond_to do |format|
       if @menu.update(menu_params)
+        binding.pry
         format.html { redirect_to @menu, notice: 'Menu was successfully updated.' }
         format.json { render :show, status: :ok, location: @menu }
       else

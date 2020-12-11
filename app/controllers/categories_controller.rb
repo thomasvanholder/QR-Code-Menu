@@ -3,7 +3,6 @@ class CategoriesController < ApplicationController
   before_action :set_menu, only: %i[new index create]
 
   def index
-    @category = @menu.categories.new
   end
 
   def new
